@@ -1,8 +1,8 @@
 # Transmission for OpenStation — Playground
 
-A real WordPress demo of Transmission: a separate, simpler editor over normal WordPress posts. OpenStation 1.1.8, Transmission 0.5.0, WordPress 7.0 and PHP 8.3. Includes a draft, a published post, categories/tags and an image in the core Media Library. The normal Posts interface remains available.
+A real WordPress demo of Transmission: a separate, simpler editor over normal WordPress posts. OpenStation 1.1.8, Transmission 0.5.1, WordPress 7.0 and PHP 8.3. Includes a draft, a published post, categories/tags and an image in the core Media Library. The normal Posts interface remains available.
 
-[Launch Transmission in WordPress Playground](https://playground.wordpress.net/?mode=seamless&blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fnickhamze%2Ftransmission-playground%2F9d4b57f%2Ftransmission-playground.zip)
+[Launch Transmission in WordPress Playground](https://playground.wordpress.net/?mode=seamless&blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fnickhamze%2Ftransmission-playground%2F78590b8%2Ftransmission-playground.zip)
 
 The desktop has a **Transmission** icon. The app opens automatically on first launch. Write a draft, use **••• → Media Library**, adjust **••• → Post settings**, or publish a test post and inspect it in WordPress's Posts app.
 
@@ -23,3 +23,5 @@ Transmission 0.5 uses the WordPress core block editor and OpenStation theme toke
 ## Writing interface
 
 Posts opens the draft library. WordPress contextual formatting appears when you click a block. Use its **AI** action, the header **AI** button, or **Cmd/Ctrl+J** for a compact writing prompt. Clearer and Shorter rewrite the active paragraph or heading; Continue inserts after it. Every suggestion requires acceptance and supports Undo. AI targets whole paragraphs/headings, not highlighted substrings. Open the Codex connection disclosure in the prompt to pair the companion.
+
+The Posts drawer closes when you click outside it or press Escape. AI command buttons never submit enclosing forms.
