@@ -13,3 +13,7 @@ update_post_meta($media,'_wp_attachment_image_alt','A sage-green planet against 
 wp_insert_post(array('post_type'=>'post','post_author'=>$user->ID,'post_status'=>'draft','post_title'=>'The internet used to feel like a place.','post_content'=>'<p>I miss the little corners of the internet. A favorite song, a half-finished thought, a guestbook that someone actually signed.</p><p>They were just someone’s place.</p><h2>Maybe we can make room again.</h2><p>Not everything needs to be a performance. Sometimes you just want to write something down, open the window, and let a little light in.</p><blockquote><p>A good place to write should feel like somewhere you want to return to.</p></blockquote>','post_category'=>array($category['term_id']),'tags_input'=>array('Small discoveries')));
 $post=wp_insert_post(array('post_type'=>'post','post_author'=>$user->ID,'post_status'=>'publish','post_title'=>'First light','post_content'=>'<p>A note from a small corner of the universe.</p><img class="wp-image-'.$media.'" src="'.esc_url($file['url']).'" alt="A sage-green planet against a deep green sky."><p>This is a normal WordPress post. You can find it in Posts, edit it in Transmission, or read it on the site.</p>','post_excerpt'=>'A note from a small corner of the universe.','post_category'=>array($category['term_id'])));
 set_post_thumbnail($post,$media);
+
+transmission_register_app();
+openstation_set_default_window($user->ID,'native:transmission');
+if(function_exists('openstation_files_auto_place_orphans')) openstation_files_auto_place_orphans($user->ID);
