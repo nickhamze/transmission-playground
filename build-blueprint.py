@@ -1,7 +1,7 @@
 from pathlib import Path
 import json, shutil, zipfile
 root=Path(__file__).resolve().parent
-shutil.copyfile(root.parent/'release/transmission-0.3.0.zip',root/'transmission.zip')
+shutil.copyfile(root.parent/'release/transmission-0.4.0.zip',root/'transmission.zip')
 blueprint={
  '$schema':'https://playground.wordpress.net/blueprint-schema.json',
  'meta':{'title':'Transmission for OpenStation','author':'nickhamze','description':'A simpler writing desk over real WordPress posts, with core media and an optional local Codex companion.'},
