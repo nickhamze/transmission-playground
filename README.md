@@ -17,3 +17,5 @@ This is an experimental browser sandbox. Export your Playground before closing i
 ## Limitations
 
 Existing complex Gutenberg layouts open in WordPress's standard editor. Transmission currently supports prose and simple inline images, not every core block. Codex requires the local companion and its normal account availability/usage limits. Some browsers may restrict companion popups from sandboxed iframes; use a normal browser tab if needed.
+
+Transmission 0.4 uses the WordPress core block editor and OpenStation theme tokens. Its launcher defaults to the desktop. The site opens a sample draft automatically. Published posts use the site’s WordPress theme.
