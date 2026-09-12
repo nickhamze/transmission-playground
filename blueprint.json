@@ -1,0 +1,64 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Transmission for OpenStation",
+    "author": "nickhamze",
+    "description": "A simpler writing desk over real WordPress posts, with core media and an optional local Codex companion."
+  },
+  "landingPage": "/openstation/",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "7.0"
+  },
+  "features": {
+    "networking": false
+  },
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "bundled",
+        "path": "/openstation.zip"
+      },
+      "options": {
+        "activate": true,
+        "targetFolderName": "desktop-mode"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "bundled",
+        "path": "/transmission.zip"
+      },
+      "options": {
+        "activate": true,
+        "targetFolderName": "transmission"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/mu-plugins/transmission-playground.php",
+      "data": {
+        "resource": "bundled",
+        "path": "/transmission-playground.php"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/tmp/first-light.png",
+      "data": {
+        "resource": "bundled",
+        "path": "/first-light.png"
+      }
+    },
+    {
+      "step": "login",
+      "username": "admin"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\nrequire_once '/wordpress/wp-load.php';\nrequire_once ABSPATH.'wp-admin/includes/image.php';\n$user=get_user_by('login','admin');wp_set_current_user($user->ID);\nupdate_user_meta($user->ID,'desktop_mode_mode','1');\nupdate_user_meta($user->ID,'desktop_mode_seen_intros',array('activation-welcome'));\nupdate_option('blogname','Transmission');update_option('blogdescription','A little space to write.');\n$category=wp_insert_term('Field notes','category');$tag=wp_insert_term('Small discoveries','post_tag');\n$file=wp_upload_bits('first-light.png',null,file_get_contents('/tmp/first-light.png'));\n$media=wp_insert_attachment(array('post_title'=>'First light','post_mime_type'=>'image/png','post_status'=>'inherit'),$file['file']);\nwp_update_attachment_metadata($media,wp_generate_attachment_metadata($media,$file['file']));\nupdate_post_meta($media,'_wp_attachment_image_alt','A sage-green planet against a deep green sky.');\nwp_insert_post(array('post_type'=>'post','post_author'=>$user->ID,'post_status'=>'draft','post_title'=>'The internet used to feel like a place.','post_content'=>'<p>I miss the little corners of the internet. A favorite song, a half-finished thought, a guestbook that someone actually signed.</p><p>They were just someone\u2019s place.</p><h2>Maybe we can make room again.</h2><p>Not everything needs to be a performance. Sometimes you just want to write something down, open the window, and let a little light in.</p><blockquote><p>A good place to write should feel like somewhere you want to return to.</p></blockquote>','post_category'=>array($category['term_id']),'tags_input'=>array('Small discoveries')));\n$post=wp_insert_post(array('post_type'=>'post','post_author'=>$user->ID,'post_status'=>'publish','post_title'=>'First light','post_content'=>'<p>A note from a small corner of the universe.</p><img class=\"wp-image-'.$media.'\" src=\"'.esc_url($file['url']).'\" alt=\"A sage-green planet against a deep green sky.\"><p>This is a normal WordPress post. You can find it in Posts, edit it in Transmission, or read it on the site.</p>','post_excerpt'=>'A note from a small corner of the universe.','post_category'=>array($category['term_id'])));\nset_post_thumbnail($post,$media);\n"
+    }
+  ]
+}
