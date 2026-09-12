@@ -1,10 +1,10 @@
 # Transmission for OpenStation — Playground
 
-A real WordPress demo of Transmission: a separate, simpler editor over normal WordPress posts. OpenStation 1.1.8, Transmission 0.4.0, WordPress 7.0 and PHP 8.3. Includes a draft, a published post, categories/tags and an image in the core Media Library. The normal Posts interface remains available.
+A real WordPress demo of Transmission: a separate, simpler editor over normal WordPress posts. OpenStation 1.1.8, Transmission 0.5.0, WordPress 7.0 and PHP 8.3. Includes a draft, a published post, categories/tags and an image in the core Media Library. The normal Posts interface remains available.
 
-[Launch Transmission in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fnickhamze%2Ftransmission-playground%2Fmain%2Ftransmission-playground.zip)
+[Launch Transmission in WordPress Playground](https://playground.wordpress.net/?mode=seamless&blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fnickhamze%2Ftransmission-playground%2F9d4b57f%2Ftransmission-playground.zip)
 
-The desktop has a **Transmission** icon. The app opens automatically on first launch. Write a draft, choose **Add media**, adjust **Post settings**, or publish a test post and inspect it in WordPress's Posts app.
+The desktop has a **Transmission** icon. The app opens automatically on first launch. Write a draft, use **••• → Media Library**, adjust **••• → Post settings**, or publish a test post and inspect it in WordPress's Posts app.
 
 ## Codex
 
@@ -18,4 +18,8 @@ This is an experimental browser sandbox. Export your Playground before closing i
 
 The inserter focuses on writing blocks. Existing block markup uses WordPress’s parser and serializer; plugin-specific blocks and advanced controls may need the standard editor. Codex requires the local companion and its normal account availability/usage limits. Some browsers may restrict companion popups from sandboxed iframes; use a normal browser tab if needed.
 
-Transmission 0.4 uses the WordPress core block editor and OpenStation theme tokens. Its launcher defaults to the desktop. The site opens a sample draft automatically. Published posts use the site’s WordPress theme.
+Transmission 0.5 uses the WordPress core block editor and OpenStation theme tokens. Its launcher defaults to the desktop. The site opens a sample draft automatically. Published posts use the site’s WordPress theme.
+
+## Writing interface
+
+Posts opens the draft library. WordPress contextual formatting appears when you click a block. Use its **AI** action, the header **AI** button, or **Cmd/Ctrl+J** for a compact writing prompt. Clearer and Shorter rewrite the active paragraph or heading; Continue inserts after it. Every suggestion requires acceptance and supports Undo. AI targets whole paragraphs/headings, not highlighted substrings. Open the Codex connection disclosure in the prompt to pair the companion.
